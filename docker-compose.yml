@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  node_api:
+    container_name: "marvel-heroes"
+    build: .
+    env_file:
+      - .env
+    ports:
+      - $PORT:$PORT
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      docker_db:
+        condition: service_healthy
+    command: bash -c "npm run -- typeorm migration:run -d src/data-source && npm start"
+
+  docker_db:
+    container_name: postgres_database
+    image: postgres:latest
+    env_file:
+      - .env
+    ports:
+      - $PGPORT:$PGPORT
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready --username=$POSTGRES_USER --dbname=$POSTGRES_DB",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
