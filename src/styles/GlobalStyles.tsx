@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   --font-inter: 'Inter', sans-serif;
   --font-lexend: 'Lexend', sans-serif;
   --font-bangers: 'Bangers', cursive;
+  --font-sans:'PT Sans Narrow', sans-serif;
 
   --fonts-heading-1-700: 700;
   --fonts-heading-1-size: 44px;
@@ -133,7 +134,7 @@ html {
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Lexend', sans-serif;
+    font-family: var(--font-lexend)
   }
 
   h1 {
