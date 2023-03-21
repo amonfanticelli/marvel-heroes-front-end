@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   --font-inter: 'Inter', sans-serif;
   --font-lexend: 'Lexend', sans-serif;
   --font-bangers: 'Bangers', cursive;
-  --font-sans:'PT Sans Narrow', sans-serif;
+  --font-sans: 'PT Sans Narrow', sans-serif;
 
   --fonts-heading-1-700: 700;
   --fonts-heading-1-size: 44px;
@@ -74,8 +74,8 @@ export const GlobalStyle = createGlobalStyle`
   --fonts-input-label-500: 500;
 
   //brand
-  --colors-brand-1: #4529E6;
-  --colors-brand-2: #5126EA;
+  --colors-red: #ED1D24;
+  --colors-gold: #DAA520;
   --colors-brand-3: #B0A6F0;
   --colors-brand-4: #EDEAFD;
 
@@ -100,21 +100,6 @@ export const GlobalStyle = createGlobalStyle`
   --colors-sucess-1: #18794E;
   --colors-sucess-2: #CCEBD7;
   --colors-sucess-3: #DDF3E4;
-
-
-  //Colors Random Profile
-  --colors-random1: #E34D8C;
-  --colors-random2: #C04277;
-  --colors-random3: #7D2A4D;
-  --colors-random4: #7000FF;
-  --colors-random5: #6200E3;
-  --colors-random6: #36007D;
-  --colors-random7: #349974;
-  --colors-random8: #2A7D5F;
-  --colors-random9: #153D2E;
-  --colors-random10: #6100FF;
-  --colors-random11: #5700E3;
-  --colors-random12: #30007D;
 
 }
 
