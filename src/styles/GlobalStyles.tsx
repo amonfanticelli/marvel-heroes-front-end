@@ -6,8 +6,9 @@ export const GlobalStyle = createGlobalStyle`
 
   //typography
 
-  --font-inter:'Inter', sans-serif;
+  --font-inter: 'Inter', sans-serif;
   --font-lexend: 'Lexend', sans-serif;
+  --font-bangers: 'Bangers', cursive;
 
   --fonts-heading-1-700: 700;
   --fonts-heading-1-size: 44px;
