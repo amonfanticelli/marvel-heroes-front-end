@@ -1,67 +1,34 @@
-import { CardElement, ComicBoxInfo, RareTag, Price } from "./style";
+import { CardElement, ComicBoxInfo, RareTag, Price, TitleBox } from "./style";
+import { useContext } from "react";
+import { Context } from "../../context/context";
 
 export const Card = () => {
+  const { comicBooks } = useContext(Context);
+
   return (
     <>
-      <CardElement>
-        <figure>
-          <img
-            src="https://meups.com.br/wp-content/uploads/2020/10/50396356732_5be575684d_h.jpg"
-            alt=""
-          />
-        </figure>
-        <h6>Marvel Spider Man</h6>
-        <ComicBoxInfo>
-          <Price>Preço: R$20,00</Price>
-          <RareTag>Rare!</RareTag>
-          <button>Comprar</button>
-        </ComicBoxInfo>
-      </CardElement>
+      {comicBooks.map((comic) => (
+        <CardElement key={comic.id}>
+          <figure>
+            <img src={comic.thumbnail.path + ".jpg"} alt="" />
+          </figure>
+          <TitleBox>
+            <h6>{comic.title}</h6>
+          </TitleBox>
 
-      <CardElement>
-        <figure>
-          <img
-            src="https://meups.com.br/wp-content/uploads/2020/10/50396356732_5be575684d_h.jpg"
-            alt=""
-          />
-        </figure>
-        <h6>Marvel Spider Man</h6>
-        <ComicBoxInfo>
-          <Price>Preço: R$20,00</Price>
-          <RareTag>Rare!</RareTag>
-          <button>Comprar</button>
-        </ComicBoxInfo>
-      </CardElement>
-
-      <CardElement>
-        <figure>
-          <img
-            src="https://meups.com.br/wp-content/uploads/2020/10/50396356732_5be575684d_h.jpg"
-            alt=""
-          />
-        </figure>
-        <h6>Marvel Spider Man</h6>
-        <ComicBoxInfo>
-          <Price>Preço: R$20,00</Price>
-          <RareTag>Rare!</RareTag>
-          <button>Comprar</button>
-        </ComicBoxInfo>
-      </CardElement>
-
-      <CardElement>
-        <figure>
-          <img
-            src="https://meups.com.br/wp-content/uploads/2020/10/50396356732_5be575684d_h.jpg"
-            alt=""
-          />
-        </figure>
-        <h6>Marvel Spider Man</h6>
-        <ComicBoxInfo>
-          <Price>Preço: R$20,00</Price>
-          <RareTag>Rare!</RareTag>
-          <button>Comprar</button>
-        </ComicBoxInfo>
-      </CardElement>
+          <ComicBoxInfo>
+            <Price>
+              {" "}
+              {new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(comic.prices[0].price)}
+            </Price>
+            <RareTag>Rare!</RareTag>
+            <button>Comprar</button>
+          </ComicBoxInfo>
+        </CardElement>
+      ))}
     </>
   );
 };

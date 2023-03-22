@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const CardElement = styled.li`
-  width: 23%;
+  width: 25%;
   min-width: 300px;
-  height: 23rem;
-  border: 1px solid black;
+  height: 26rem;
+  background: var(--colors-grey-9);
+  border: 1px solid var(--colors-grey-9);
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
 
   figure {
     width: 100%;
@@ -20,15 +22,19 @@ export const CardElement = styled.li`
   img:hover {
     transform: scale(1.1);
   }
+`;
+
+export const TitleBox = styled.div`
+  width: 100%;
+  display: flex;
+  min-height: 4rem;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   h6 {
-    display: flex;
-    align-self: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
     font-family: var(--font-bangers);
     font-weight: 400;
-    font-size: 26px;
-    align-self: center;
+    font-size: 20px;
   }
 `;
 
