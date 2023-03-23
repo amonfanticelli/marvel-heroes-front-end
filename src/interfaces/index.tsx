@@ -16,6 +16,11 @@ export interface IComicBook {
   id?: string;
   title: string;
   description?: string;
+  textObjects?: [
+    {
+      text: string;
+    }
+  ];
   rare?: boolean;
   prices: [
     {

@@ -17,7 +17,9 @@ export const Main = styled.main`
     height: 600px;
   }
 
-  div {
+  section {
+    display: flex;
+    flex-direction: column;
     border: 1px solid red;
     width: 40%;
     h4 {
@@ -27,7 +29,9 @@ export const Main = styled.main`
 
 export const DescriptionBox = styled.div`
   border: 1px solid red;
-  width: 66.7%;
+  width: 100%;
   display: flex;
-  align-self: center;
+  flex-direction: column;
+  h5 {
+  }
 `;

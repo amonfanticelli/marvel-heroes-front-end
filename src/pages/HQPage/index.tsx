@@ -11,15 +11,19 @@ export const HQPage = () => {
 
       <Main>
         <img src={location.state?.comic.thumbnail.path + ".jpg"} alt="" />
-        <div>
+        <section>
           <h4>{location.state?.comic.title}</h4>
 
           <span>Escritor: Junim </span>
 
           <span>Publicado: 2019</span>
-        </div>
+
+          <DescriptionBox>
+            <h5>Descrição:</h5>
+            <p>{location.state?.comic.description}</p>
+          </DescriptionBox>
+        </section>
       </Main>
-      <DescriptionBox></DescriptionBox>
     </AllContent>
   );
 };
