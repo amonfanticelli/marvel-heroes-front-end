@@ -8,7 +8,7 @@ export interface IContext {
   addCartItem: (cartItem: IComicBook) => void;
   cartItens: IComicBook[];
   removeCartItem: (id: string) => void;
-  removeAllCart: (comicBooks: any) => void;
+  removeAllCart: () => void;
   calculateTotalPrice: number;
 }
 
@@ -16,6 +16,7 @@ export interface IComicBook {
   id?: string;
   title: string;
   description?: string;
+  rare?: boolean;
   prices: [
     {
       price: number;
@@ -23,6 +24,11 @@ export interface IComicBook {
   ];
 
   thumbnail: {
+    path: string;
+    extension: string;
+  };
+
+  images?: {
     path: string;
     extension: string;
   };

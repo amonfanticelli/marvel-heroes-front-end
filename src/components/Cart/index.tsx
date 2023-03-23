@@ -52,7 +52,11 @@ export const Cart = () => {
                         currency: "USD",
                       }).format(comicBookCart.prices[0].price)}
                     </PriceCart>
-                    <RareTagCart>Rare!</RareTagCart>
+                    {!comicBookCart.rare ? (
+                      <></>
+                    ) : (
+                      <RareTagCart>Rare!</RareTagCart>
+                    )}
                   </ComicBoxInfoCart>
                   <button onClick={() => removeCartItem(comicBookCart.id!)}>
                     <IoTrashBinOutline className="trashcanCartItem" />
@@ -73,9 +77,7 @@ export const Cart = () => {
                 currency: "USD",
               }).format(calculateTotalPrice)}
             </span>
-            <button onClick={() => removeAllCart(cartItens)}>
-              Limpar carrinho
-            </button>
+            <button onClick={() => removeAllCart()}>Limpar carrinho</button>
           </TotalPriceSession>
         )}
       </Aside>

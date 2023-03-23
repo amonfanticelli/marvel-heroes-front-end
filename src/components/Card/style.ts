@@ -9,10 +9,11 @@ export const CardElement = styled.li`
   flex-direction: column;
   padding-bottom: 20px;
 
-  figure {
+  .linkToHQ {
     width: 100%;
     height: 15rem;
   }
+
   img {
     width: 100%;
     height: 100%;
@@ -37,9 +38,14 @@ export const TitleBox = styled.div`
     font-family: var(--font-bangers);
     font-weight: 400;
     font-size: 20px;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap; /* let the text wrap preserving spaces */
   }
 `;
 
@@ -52,6 +58,10 @@ export const Price = styled.span`
   color: var(--colors-grey-2);
 `;
 
+export const BlankBox = styled.div`
+  height: 1.5rem;
+`;
+
 export const RareTag = styled.span`
   font-family: var(--font-inter);
   font-style: normal;
@@ -59,6 +69,7 @@ export const RareTag = styled.span`
   font-size: 1rem;
   line-height: 1.75rem;
   color: var(--colors-gold);
+  height: 1.5rem;
 `;
 
 export const ComicBoxInfo = styled.div`

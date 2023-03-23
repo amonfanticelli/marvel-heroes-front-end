@@ -9,18 +9,39 @@ export const Context = createContext({} as IContext);
 export const Provider = ({ children }: IProvider) => {
   const [comicBooks, setComicBooks] = useState<IComicBook[]>([]);
   const [cartItens, setCartItens] = useState<IComicBook[]>([]);
-  const getHQs = () => {
+
+  const getHQs = async () => {
     const timeStamp = Math.floor(Date.now() / 1000).toString();
     const privateKey = "949d93578a185a51b0d371610caff60cdc763355";
     const apiKey = "ad7ff4bdd1b22a69f4bc0eb5e76580c4";
     let hash = md5(timeStamp + privateKey + apiKey);
 
-    api
-      .get(`v1/public/comics?apikey=${apiKey}&hash=${hash}&ts=${timeStamp}`)
-      .then((res) => {
-        setComicBooks(res.data.data.results);
-      })
-      .catch((err) => toast.error(`${err.response.data.message}`));
+    const results = await api
+      .get<{ data: { results: IComicBook[] } }>(
+        `v1/public/comics?apikey=${apiKey}&hash=${hash}&ts=${timeStamp}`
+      )
+      .then((res) => res.data.data.results)
+      .catch((err) => {
+        toast.error(`${err.response.data.message}`);
+        return [];
+      });
+    const rareIndexes: number[] = [];
+    const rarePercentage = 10;
+    const rareCounts = results.length / rarePercentage;
+
+    while (rareIndexes.length !== rareCounts) {
+      const randomIndex = Math.floor(Math.random() * results.length - 1) + 1;
+      if (!rareIndexes.includes(randomIndex)) {
+        rareIndexes.push(randomIndex);
+      }
+    }
+
+    setComicBooks(
+      results.map((comic, index) => ({
+        ...comic,
+        rare: rareIndexes.includes(index),
+      }))
+    );
   };
 
   const addCartItem = (cartItem: IComicBook) => {
@@ -43,10 +64,8 @@ export const Provider = ({ children }: IProvider) => {
     toast.success("Quadrinho removido do carrinho!");
   };
 
-  const removeAllCart = (comicBooks: any) => {
-    const newList = cartItens.filter((item) => item.id === comicBooks);
-
-    setCartItens(newList);
+  const removeAllCart = () => {
+    setCartItens([]);
     toast.success("Todos os Quadrinhos foram removidos!");
   };
 

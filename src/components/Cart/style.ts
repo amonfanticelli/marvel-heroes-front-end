@@ -58,7 +58,6 @@ export const TitleBox = styled.div`
 `;
 
 export const CartList = styled.ul`
-  /* border: 1px solid red; */
   overflow: auto;
   overflow-x: hidden;
   width: 100%;

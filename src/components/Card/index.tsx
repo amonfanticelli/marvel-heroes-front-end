@@ -1,4 +1,12 @@
-import { CardElement, ComicBoxInfo, RareTag, Price, TitleBox } from "./style";
+import {
+  CardElement,
+  ComicBoxInfo,
+  RareTag,
+  Price,
+  TitleBox,
+  BlankBox,
+} from "./style";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../../context/context";
 
@@ -9,9 +17,9 @@ export const Card = () => {
     <>
       {comicBooks.map((comic) => (
         <CardElement key={comic.id}>
-          <figure>
+          <Link className="linkToHQ" state={{ comic }} to="/hq">
             <img src={comic.thumbnail.path + ".jpg"} alt="" />
-          </figure>
+          </Link>
           <TitleBox>
             <h6>{comic.title}</h6>
           </TitleBox>
@@ -24,7 +32,8 @@ export const Card = () => {
                 currency: "USD",
               }).format(comic.prices[0].price)}
             </Price>
-            <RareTag>Rare!</RareTag>
+            {!comic.rare ? <BlankBox /> : <RareTag>Rare!</RareTag>}
+
             <button onClick={() => addCartItem(comic)}>Comprar</button>
           </ComicBoxInfo>
         </CardElement>
