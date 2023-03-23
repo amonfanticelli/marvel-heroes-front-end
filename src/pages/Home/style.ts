@@ -8,7 +8,8 @@ export const AllContent = styled.div`
 
 export const Main = styled.main`
   display: flex;
-  width: 70%;
+  width: 60%;
+
   max-width: 1300px;
-  margin-top: 1rem; ;
+  margin-top: 2rem; ;
 `;

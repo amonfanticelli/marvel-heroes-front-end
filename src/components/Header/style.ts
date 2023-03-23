@@ -25,5 +25,6 @@ export const Header = styled.header`
   }
   h2 {
     font-family: var(--font-bangers);
+    font-weight: 400;
   }
 `;

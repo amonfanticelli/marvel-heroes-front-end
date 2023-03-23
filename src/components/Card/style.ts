@@ -1,9 +1,8 @@
 import styled from "styled-components";
 
 export const CardElement = styled.li`
-  width: 25%;
-  min-width: 300px;
-  height: 26rem;
+  width: 20%;
+  min-width: 250px;
   background: var(--colors-grey-9);
   border: 1px solid var(--colors-grey-9);
   display: flex;
@@ -12,7 +11,7 @@ export const CardElement = styled.li`
 
   figure {
     width: 100%;
-    height: 12rem;
+    height: 15rem;
   }
   img {
     width: 100%;
@@ -25,16 +24,22 @@ export const CardElement = styled.li`
 `;
 
 export const TitleBox = styled.div`
-  width: 100%;
   display: flex;
-  min-height: 4rem;
+  align-self: center;
+  width: 90%;
+  display: flex;
+  min-height: 5rem;
   justify-content: center;
+
   margin-top: 1rem;
   margin-bottom: 1rem;
   h6 {
     font-family: var(--font-bangers);
     font-weight: 400;
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -68,12 +73,18 @@ export const ComicBoxInfo = styled.div`
   button {
     color: var(--colors-white);
     background: var(--colors-red);
-    border: var(--colors-red);
+    border: 1px solid transparent;
     max-width: 100px;
     border-radius: 4px;
     padding: 9px;
     cursor: pointer;
     font-family: var(--font-inter);
     font-size: 1rem;
+    &:hover {
+      background: var(--colors-white);
+      color: var(--colors-red);
+      border: 1px solid var(--colors-red);
+      transition: 0.4s;
+    }
   }
 `;

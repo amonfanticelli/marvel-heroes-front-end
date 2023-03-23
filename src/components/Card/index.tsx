@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { Context } from "../../context/context";
 
 export const Card = () => {
-  const { comicBooks } = useContext(Context);
+  const { comicBooks, addCartItem } = useContext(Context);
 
   return (
     <>
@@ -25,7 +25,7 @@ export const Card = () => {
               }).format(comic.prices[0].price)}
             </Price>
             <RareTag>Rare!</RareTag>
-            <button>Comprar</button>
+            <button onClick={() => addCartItem(comic)}>Comprar</button>
           </ComicBoxInfo>
         </CardElement>
       ))}

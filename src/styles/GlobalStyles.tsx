@@ -76,7 +76,7 @@ export const GlobalStyle = createGlobalStyle`
   //brand
   --colors-red: #ED1D24;
   --colors-gold: #DAA520;
-  --colors-brand-3: #B0A6F0;
+  --colors-yellow: #FBCA03;
   --colors-brand-4: #EDEAFD;
 
   //grey scale
