@@ -125,31 +125,37 @@ html {
   h1 {
     font-weight: var(--fonts-heading-1-700);
     font-size: var(--fonts-heading-1-size);
+    font-family: var(--font-lexend);
     line-height: var(--fonts-heading-1-line);
   }
   h2 {
     font-weight: var(--fonts-heading-2-600);
     font-size: var(--fonts-heading-2-size);
+    font-family: var(--font-lexend);
     line-height: var(--fonts-heading-2-line);
   }
   h3 {
     font-weight: var(--fonts-heading-3-600);
     font-size: var(--fonts-heading-3-size);
+    font-family: var(--font-lexend);
     line-height: var(--fonts-heading-3-line);
   }
   h4 {
     font-weight: var(--fonts-heading-4-600);
     font-size: var(--fonts-heading-4-size);
+    font-family: var(--font-lexend);
     line-height: var(--fonts-heading-4-line);
   }
   h5 {
     font-weight: var(--fonts-heading-5-600);
     font-size: var(--fonts-heading-5-size);
+    font-family: var(--font-lexend);
     line-height: var(--fonts-heading-5-line);
   }
   h6 {
     font-weight: var(--fonts-heading-6-600);
     font-size: var(--fonts-heading-6-size);
+    font-family: var(--font-lexend);
     line-height: var(--fonts-heading-6-line);
   }
 

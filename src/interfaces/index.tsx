@@ -10,31 +10,31 @@ export interface IContext {
   removeCartItem: (id: string) => void;
   removeAllCart: () => void;
   calculateTotalPrice: number;
+  totalPriceDiscount: number;
 }
 
 export interface IComicBook {
-  id?: string;
+  id: string;
   title: string;
-  description?: string;
-  textObjects?: [
-    {
-      text: string;
-    }
-  ];
+  textObjects: {
+    text: string;
+  }[];
   rare?: boolean;
-  prices: [
-    {
-      price: number;
-    }
-  ];
-
+  prices: {
+    price: number;
+  }[];
   thumbnail: {
     path: string;
     extension: string;
   };
-
-  images?: {
+  images: {
     path: string;
     extension: string;
+  }[];
+  creators: {
+    items: {
+      name: string;
+      role: string;
+    }[];
   };
 }

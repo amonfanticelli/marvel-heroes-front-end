@@ -1,7 +1,7 @@
 import { List } from "./style";
 import { Card } from "../Card";
 
-export const CartList = () => {
+export const CardList = () => {
   return (
     <List>
       <Card />

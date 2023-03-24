@@ -19,8 +19,13 @@ import { Context } from "../../context/context";
 import { useContext } from "react";
 
 export const Cart = () => {
-  const { cartItens, removeCartItem, removeAllCart, calculateTotalPrice } =
-    useContext(Context);
+  const {
+    cartItens,
+    removeCartItem,
+    removeAllCart,
+    calculateTotalPrice,
+    totalPriceDiscount,
+  } = useContext(Context);
   return (
     <>
       <Aside>
@@ -77,6 +82,21 @@ export const Cart = () => {
                 currency: "USD",
               }).format(calculateTotalPrice)}
             </span>
+            <span>
+              Valor do desconto:{" "}
+              {new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(calculateTotalPrice - totalPriceDiscount)}
+            </span>
+            <span>
+              Valor com desconto:{" "}
+              {new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+              }).format(totalPriceDiscount)}
+            </span>
+
             <button onClick={() => removeAllCart()}>Limpar carrinho</button>
           </TotalPriceSession>
         )}

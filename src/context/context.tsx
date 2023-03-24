@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 import { toast } from "react-hot-toast";
 import { api } from "../services";
 import { IProvider, IContext, IComicBook } from "../interfaces";
@@ -9,12 +9,39 @@ export const Context = createContext({} as IContext);
 export const Provider = ({ children }: IProvider) => {
   const [comicBooks, setComicBooks] = useState<IComicBook[]>([]);
   const [cartItens, setCartItens] = useState<IComicBook[]>([]);
+  const [cupomType, setCumpomType] = useState<"rare" | "notRare" | null>(
+    "notRare"
+  );
+
+  const calculateTotalPrice = useMemo(
+    () =>
+      cartItens.reduce(
+        (acc, currentValue) => acc + currentValue.prices[0].price,
+        0
+      ),
+    [cartItens]
+  );
+  const totalPriceDiscount = useMemo(
+    () =>
+      cartItens.reduce((acc, currentValue) => {
+        if (cupomType === "rare" && currentValue.rare) {
+          return acc + currentValue.prices[0].price * 0.95;
+        }
+        if (cupomType === "notRare" && !currentValue.rare) {
+          return acc + currentValue.prices[0].price * 0.9;
+        }
+        return acc + currentValue.prices[0].price;
+      }, 0),
+    [cartItens, cupomType]
+  );
 
   const getHQs = async () => {
     const timeStamp = Math.floor(Date.now() / 1000).toString();
-    const privateKey = "949d93578a185a51b0d371610caff60cdc763355";
-    const apiKey = "ad7ff4bdd1b22a69f4bc0eb5e76580c4";
-    let hash = md5(timeStamp + privateKey + apiKey);
+    // const privateKey = "949d93578a185a51b0d371610caff60cdc763355";
+    const privateKey = import.meta.env.VITE_PRIVATE_KEY;
+    const apiKey = import.meta.env.VITE_API_KEY;
+    // const apiKey = "ad7ff4bdd1b22a69f4bc0eb5e76580c4";
+    const hash = md5(timeStamp + privateKey + apiKey);
 
     const results = await api
       .get<{ data: { results: IComicBook[] } }>(
@@ -69,10 +96,6 @@ export const Provider = ({ children }: IProvider) => {
     toast.success("Todos os Quadrinhos foram removidos!");
   };
 
-  const calculateTotalPrice = cartItens.reduce(
-    (acc, inicialValue) => acc + inicialValue.prices[0].price,
-    0
-  );
   return (
     <Context.Provider
       value={{
@@ -83,6 +106,7 @@ export const Provider = ({ children }: IProvider) => {
         removeCartItem,
         removeAllCart,
         calculateTotalPrice,
+        totalPriceDiscount,
       }}
     >
       {children}

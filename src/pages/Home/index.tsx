@@ -1,6 +1,6 @@
 import { HeaderHome } from "../../components/Header";
 import { Main, AllContent } from "./style";
-import { CartList } from "../../components/CardList";
+import { CardList } from "../../components/CardList";
 import { Cart } from "../../components/Cart";
 import { useEffect, useContext } from "react";
 import { Context } from "../../context/context";
@@ -16,7 +16,7 @@ export const Home = () => {
       <HeaderHome />
       <AllContent>
         <Main>
-          <CartList />
+          <CardList />
         </Main>
         <Cart />
       </AllContent>

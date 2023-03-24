@@ -1,29 +1,61 @@
 import { useLocation } from "react-router-dom";
 import { IComicBook } from "../../interfaces";
 import { HeaderHome } from "../../components/Header";
-import { Main, AllContent, DescriptionBox } from "./style";
+import {
+  Main,
+  AllContent,
+  DescriptionBox,
+  CreatorsBox,
+  ImagesSection,
+} from "./style";
 
 export const HQPage = () => {
   const location = useLocation() as { state?: { comic: IComicBook } };
+
+  const comic = location.state?.comic;
+
+  let creators = comic?.creators?.items;
+  const creatorsName = [];
+  for (let i = 0; i < creators!.length; i++) {
+    creatorsName.push(`${creators![i].name}, `);
+  }
+
+  let comicImages = comic?.images;
+  const onlyImagePaths = [];
+  for (let i = 0; i < comicImages!.length; i++) {
+    onlyImagePaths.push(
+      `${comicImages![i].path + "." + comicImages![i].extension}`
+    );
+  }
+
   return (
     <AllContent>
       <HeaderHome />
 
       <Main>
-        <img src={location.state?.comic.thumbnail.path + ".jpg"} alt="" />
+        <img
+          src={comic?.thumbnail.path! + "." + comic?.thumbnail.extension}
+          alt=""
+        />
         <section>
-          <h4>{location.state?.comic.title}</h4>
-
-          <span>Escritor: Junim </span>
-
-          <span>Publicado: 2019</span>
-
+          <h4>{comic?.title}</h4>
+          <CreatorsBox>
+            <h5>Criadores:</h5>
+            <span> {creatorsName}</span>
+          </CreatorsBox>
           <DescriptionBox>
             <h5>Descrição:</h5>
-            <p>{location.state?.comic.description}</p>
+
+            {comic?.textObjects[0]?.text
+              .split("<br>")
+              .map((text) => <p key={text}>{text}</p>) || (
+              <p>"This comic does not have a description"</p>
+            )}
           </DescriptionBox>
         </section>
       </Main>
+
+      <ImagesSection></ImagesSection>
     </AllContent>
   );
 };

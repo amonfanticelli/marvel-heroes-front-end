@@ -26,6 +26,9 @@ export const Aside = styled.aside`
   box-shadow: 2px 1px 47px -11px rgba(0, 0, 0, 0.51);
   -webkit-box-shadow: 2px 1px 47px -11px rgba(0, 0, 0, 0.51);
   -moz-box-shadow: 2px 1px 47px -11px rgba(0, 0, 0, 0.51);
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 export const CartSection = styled.section`
