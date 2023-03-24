@@ -6,8 +6,7 @@ import {
   AllContent,
   DescriptionBox,
   CreatorsBox,
-  ImagesSection,
-  MiscellaneousImgs,
+  ImagesList,
 } from "./style";
 
 export const HQPage = () => {
@@ -61,11 +60,13 @@ export const HQPage = () => {
           </section>
         </Main>
 
-        <ImagesSection>
+        <ImagesList>
           {onlyImagePaths.map((img) => (
-            <MiscellaneousImgs key={img} src={img}></MiscellaneousImgs>
+            <li key={img}>
+              <img src={img} alt="" />
+            </li>
           )) || ""}
-        </ImagesSection>
+        </ImagesList>
       </AllContent>
     </>
   );
