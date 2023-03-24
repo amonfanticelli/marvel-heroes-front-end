@@ -1,13 +1,41 @@
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 
-export const CardElement = styled.li`
+const pulse = keyframes`
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px var(--colors-yellow);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 var(--colors-yellow);
+	}
+`;
+
+export const CardElement = styled.li<{ rare: boolean }>`
   width: 20%;
   min-width: 250px;
   background: var(--colors-grey-9);
-  border: 1px solid var(--colors-grey-9);
+  border: ${({ rare }) =>
+    rare === false
+      ? "1px solid ${var(--colors-grey-9)}"
+      : "1px solid var(--colors-yellow)"};
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: ${({ rare }) =>
+    rare === false
+      ? ""
+      : css`
+          ${pulse} 2s infinite
+        `};
 
   .linkToHQ {
     width: 100%;

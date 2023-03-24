@@ -26,7 +26,7 @@ export const Aside = styled.aside`
   background: var(--colors-grey-6);
   margin-top: 2rem;
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 910px) {
     width: 100%;
   }
 `;

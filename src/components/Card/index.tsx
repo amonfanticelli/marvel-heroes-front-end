@@ -16,7 +16,7 @@ export const Card = () => {
   return (
     <>
       {comicBooks.map((comic) => (
-        <CardElement key={comic.id}>
+        <CardElement rare={comic.rare!} key={comic.id}>
           <Link className="linkToHQ" state={{ comic }} to="/hq">
             <img
               src={comic.thumbnail.path + "." + comic.thumbnail.extension}

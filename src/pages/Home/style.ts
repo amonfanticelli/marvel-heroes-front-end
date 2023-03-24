@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const infiniteCicle = keyframes`
+const endlessCicle = keyframes`
 
 
   0% { 
@@ -18,7 +18,7 @@ const infiniteCicle = keyframes`
 export const AllContent = styled.div`
   display: flex;
   justify-content: center;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 910px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +35,7 @@ export const Main = styled.main`
 
   max-width: 1300px;
   margin-top: 2rem;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 910px) {
     width: 100%;
   }
 `;
@@ -43,20 +43,21 @@ export const Main = styled.main`
 export const LoadingBox = styled.div`
   margin: auto;
 
-  border: 20px solid #eaf0f6;
+  border: 20px solid var(--colors-grey-8);
 
   border-radius: 50%;
 
-  border-top: 20px solid #ff7a59;
+  border-top: 20px solid var(--colors-red);
 
   width: 200px;
 
   height: 200px;
 
-  animation: ${infiniteCicle} 4s linear infinite;
+  animation: ${endlessCicle} 4s linear infinite;
 `;
 export const ArrowButtonBox = styled.div`
-  width: 94.7%;
+  width: 100%;
+  max-width: 1090px;
   border: 1px solid red;
   display: flex;
   justify-content: space-between;
