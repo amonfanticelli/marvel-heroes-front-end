@@ -13,6 +13,7 @@ export interface IContext {
   totalPriceDiscount: number;
   showNext: () => void;
   isLoading: boolean;
+  nextPageTest: () => void;
 }
 
 export interface IComicBook {

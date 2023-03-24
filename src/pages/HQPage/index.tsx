@@ -7,6 +7,7 @@ import {
   DescriptionBox,
   CreatorsBox,
   ImagesSection,
+  MiscellaneousImgs,
 } from "./style";
 
 export const HQPage = () => {
@@ -43,11 +44,8 @@ export const HQPage = () => {
               <h5>Criadores:</h5>
               <span>
                 {" "}
-                {creatorsName.map(
-                  (text) =>
-                    <span key={text}>{text}</span> || (
-                      <p>"No creators have been found"</p>
-                    )
+                {creatorsName.map((text) => <span key={text}>{text}</span>) || (
+                  <p>"No creators have been found"</p>
                 )}
               </span>
             </CreatorsBox>
@@ -63,7 +61,11 @@ export const HQPage = () => {
           </section>
         </Main>
 
-        <ImagesSection></ImagesSection>
+        <ImagesSection>
+          {onlyImagePaths.map((img) => (
+            <MiscellaneousImgs key={img} src={img}></MiscellaneousImgs>
+          )) || ""}
+        </ImagesSection>
       </AllContent>
     </>
   );

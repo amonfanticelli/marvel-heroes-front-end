@@ -1,56 +1,40 @@
-// describe("test connection with homepage", () => {
-//   it("visits main homepage", () => {
-//     cy.visit("https://desafio-fullstack-front.vercel.app/");
-//   });
-// });
+describe("test connection with homepage", () => {
+  it("visits main homepage", () => {
+    cy.visit("http://localhost:5173/");
+  });
+});
 
-// describe("test if you can go to register page", () => {
-//   it("test button cadastre-se", () => {
-//     cy.visit("https://desafio-fullstack-front.vercel.app/");
+describe("test if comic books are entering in cart after clicking a button", () => {
+  it("add to cart", () => {
+    cy.visit("http://localhost:5173/");
 
-//     cy.contains("Cadastre-se").click();
-//   });
-// });
+    cy.contains("Comprar").click();
+  });
+});
 
-// describe("test if the url has the correct atributte", () => {
-//   it("test url link", () => {
-//     cy.visit("https://desafio-fullstack-front.vercel.app/");
+describe("test if comic books can be removed from cart by trash icon", () => {
+  it("remove from cart", () => {
+    cy.visit("http://localhost:5173/");
 
-//     cy.contains("Cadastre-se").click();
+    cy.contains("Comprar").click();
+    cy.get("#trashCan").click();
+  });
+});
 
-//     cy.url().should("include", "/register");
-//   });
-// });
+describe("test if button remove all from cart is working", () => {
+  it("remove all from cart", () => {
+    cy.visit("http://localhost:5173/");
 
-// describe("test if you can register", () => {
-//   it("register user", () => {
-//     cy.visit("https://desafio-fullstack-front.vercel.app/");
+    cy.contains("Comprar").click();
+    cy.contains("Limpar carrinho").click();
+  });
+});
 
-//     cy.contains("Cadastre-se").click();
+describe("test if can be redirected to comic page", () => {
+  it("go to comic page", () => {
+    cy.visit("http://localhost:5173/");
 
-//     cy.url().should("include", "/register");
-
-//     cy.get("#fullName").type("faker");
-//     cy.get("#email").type("fake100@email.com");
-//     cy.get("#cellphone").type("303233345");
-//     cy.get("#password").type("1234");
-//     cy.get("#userPasswordCheck").type("1234");
-
-//     cy.contains("Registrar").click();
-//     cy.url().should("include", "/login");
-//   });
-// });
-
-// describe("test if you can login", () => {
-//   it("login user", () => {
-//     cy.visit("https://desafio-fullstack-front.vercel.app/");
-
-//     cy.get("#email").type("fake100@email.com");
-
-//     cy.get("#password").type("1234");
-
-//     cy.contains("Entrar").click();
-
-//     cy.url().should("include", "/dashboard");
-//   });
-// });
+    cy.get("#linkComic").click();
+    cy.url().should("include", "/hq");
+  });
+});

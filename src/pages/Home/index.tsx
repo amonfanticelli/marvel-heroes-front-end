@@ -14,11 +14,10 @@ import { useEffect, useContext } from "react";
 import { Context } from "../../context/context";
 
 export const Home = () => {
-  const { getHQs, showNext, isLoading } = useContext(Context);
+  const { getHQs, nextPageTest, isLoading } = useContext(Context);
 
   useEffect(() => {
     getHQs();
-    // showNext();
   }, []);
   return (
     <>
@@ -33,7 +32,10 @@ export const Home = () => {
               <ArrowButtonBox>
                 <BsArrowLeft className="iconArrowLeft" />
 
-                <BsArrowRight className="iconArrowRight" />
+                <BsArrowRight
+                  onClick={() => nextPageTest}
+                  className="iconArrowRight"
+                />
               </ArrowButtonBox>
             </>
           )}

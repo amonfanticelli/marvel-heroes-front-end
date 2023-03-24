@@ -83,6 +83,41 @@ export const Provider = ({ children }: IProvider) => {
     setLoading(false);
   };
 
+  const nextPageTest = async () => {
+    const timeStamp = Math.floor(Date.now() / 1000).toString();
+    const privateKey = import.meta.env.VITE_PRIVATE_KEY;
+    const apiKey = import.meta.env.VITE_API_KEY;
+    const hash = md5(timeStamp + privateKey + apiKey);
+
+    const results = await api
+      .get<{ data: { results: IComicBook[] } }>(
+        `v1/public/comics?apikey=${apiKey}&hash=${hash}&ts=${timeStamp}&offset=20`
+      )
+      .then((res) => res.data.data.results)
+      .catch((err) => {
+        toast.error(`${err.response.data.message}`);
+        return [];
+      });
+    const rareIndexes: number[] = [];
+    const rarePercentage = 10;
+    const rareCounts = results.length / rarePercentage;
+
+    while (rareIndexes.length !== rareCounts) {
+      const randomIndex = Math.floor(Math.random() * results.length - 1) + 1;
+      if (!rareIndexes.includes(randomIndex)) {
+        rareIndexes.push(randomIndex);
+      }
+    }
+
+    setComicBooks(
+      results.map((comic, index) => ({
+        ...comic,
+        rare: rareIndexes.includes(index),
+      }))
+    );
+    setLoading(false);
+  };
+
   const addCartItem = (cartItem: IComicBook) => {
     const find = cartItens.find((item) => {
       return item.id === cartItem.id;
@@ -121,6 +156,7 @@ export const Provider = ({ children }: IProvider) => {
         totalPriceDiscount,
         showNext,
         isLoading,
+        nextPageTest,
       }}
     >
       {children}

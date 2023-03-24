@@ -9,7 +9,10 @@ export const List = styled.ul`
   gap: 1rem;
   @media screen and (max-width: 910px) {
     display: flex;
-    overflow-x: scroll;
+    justify-content: start;
     flex-wrap: unset;
+    max-width: none;
+    overflow-x: scroll;
+    width: 100%;
   }
 `;

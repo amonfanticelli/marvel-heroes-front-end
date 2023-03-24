@@ -71,7 +71,10 @@ export const Cart = () => {
                     )}
                   </ComicBoxInfoCart>
                   <button onClick={() => removeCartItem(comicBookCart.id!)}>
-                    <IoTrashBinOutline className="trashcanCartItem" />
+                    <IoTrashBinOutline
+                      id="trashCan"
+                      className="trashcanCartItem"
+                    />
                   </button>
                 </CardElementCart>
               ))}
