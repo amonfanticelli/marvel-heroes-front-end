@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { IComicBook } from "../../interfaces";
-import { HeaderHome } from "../../components/Header";
+import { Header } from "../../components/Header";
 import {
   Main,
   AllContent,
@@ -29,33 +29,42 @@ export const HQPage = () => {
   }
 
   return (
-    <AllContent>
-      <HeaderHome />
+    <>
+      <Header />
+      <AllContent>
+        <Main>
+          <img
+            src={comic?.thumbnail.path! + "." + comic?.thumbnail.extension}
+            alt=""
+          />
+          <section>
+            <h4>{comic?.title}</h4>
+            <CreatorsBox>
+              <h5>Criadores:</h5>
+              <span>
+                {" "}
+                {creatorsName.map(
+                  (text) =>
+                    <span key={text}>{text}</span> || (
+                      <p>"No creators have been found"</p>
+                    )
+                )}
+              </span>
+            </CreatorsBox>
+            <DescriptionBox>
+              <h5>Descrição:</h5>
 
-      <Main>
-        <img
-          src={comic?.thumbnail.path! + "." + comic?.thumbnail.extension}
-          alt=""
-        />
-        <section>
-          <h4>{comic?.title}</h4>
-          <CreatorsBox>
-            <h5>Criadores:</h5>
-            <span> {creatorsName}</span>
-          </CreatorsBox>
-          <DescriptionBox>
-            <h5>Descrição:</h5>
+              {comic?.textObjects[0]?.text
+                .split("<br>")
+                .map((text) => <p key={text}>{text}</p>) || (
+                <p>"This comic does not have a description"</p>
+              )}
+            </DescriptionBox>
+          </section>
+        </Main>
 
-            {comic?.textObjects[0]?.text
-              .split("<br>")
-              .map((text) => <p key={text}>{text}</p>) || (
-              <p>"This comic does not have a description"</p>
-            )}
-          </DescriptionBox>
-        </section>
-      </Main>
-
-      <ImagesSection></ImagesSection>
-    </AllContent>
+        <ImagesSection></ImagesSection>
+      </AllContent>
+    </>
   );
 };

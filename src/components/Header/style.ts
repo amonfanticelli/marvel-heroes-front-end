@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
+export const HeaderComponent = styled.header`
   width: 100%;
-  max-width: 100vw;
+
   height: 6rem;
   background-color: var(--colors-grey-9);
   display: flex;

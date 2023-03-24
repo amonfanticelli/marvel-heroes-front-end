@@ -11,6 +11,8 @@ export interface IContext {
   removeAllCart: () => void;
   calculateTotalPrice: number;
   totalPriceDiscount: number;
+  showNext: () => void;
+  isLoading: boolean;
 }
 
 export interface IComicBook {

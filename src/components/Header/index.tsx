@@ -1,12 +1,12 @@
-import { Header } from "./style";
+import { HeaderComponent } from "./style";
 
-export const HeaderHome = () => {
+export const Header = () => {
   return (
     <>
-      <Header>
+      <HeaderComponent>
         {" "}
         <h1>MARVEL</h1> <h2>COMICS</h2>{" "}
-      </Header>
+      </HeaderComponent>
     </>
   );
 };

@@ -44,7 +44,14 @@ export const Cart = () => {
               {cartItens.map((comicBookCart) => (
                 <CardElementCart key={comicBookCart.id}>
                   <figure>
-                    <img src={comicBookCart.thumbnail.path + ".jpg"} alt="" />
+                    <img
+                      src={
+                        comicBookCart.thumbnail.path +
+                        "." +
+                        comicBookCart.thumbnail.extension
+                      }
+                      alt=""
+                    />
                   </figure>
                   <TitleBoxCartItem>
                     <ComicTitleCart>{comicBookCart.title}</ComicTitleCart>

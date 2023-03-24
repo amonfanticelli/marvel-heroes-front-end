@@ -19,13 +19,13 @@ const appear = keyframes`
 
 export const Aside = styled.aside`
   width: 25%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   min-width: 23.438rem;
   height: 29rem;
   background: var(--colors-grey-6);
   margin-top: 2rem;
-  box-shadow: 2px 1px 47px -11px rgba(0, 0, 0, 0.51);
-  -webkit-box-shadow: 2px 1px 47px -11px rgba(0, 0, 0, 0.51);
-  -moz-box-shadow: 2px 1px 47px -11px rgba(0, 0, 0, 0.51);
+
   @media screen and (max-width: 900px) {
     width: 100%;
   }
@@ -39,7 +39,7 @@ export const CartSection = styled.section`
 `;
 
 export const TitleBox = styled.div`
-  background: var(--colors-grey-10);
+  background: var(--colors-grey-9);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   padding-left: 15px;
@@ -50,7 +50,7 @@ export const TitleBox = styled.div`
   margin-bottom: 1rem;
   h3 {
     font-weight: 400;
-    font-family: var(--font-bangers);
+    font-family: var(--font-sans);
     color: var(--colors-red);
   }
   .titleCartIcon {
@@ -141,6 +141,8 @@ export const CardElementCart = styled.li`
     align-items: center;
     justify-content: center;
     background: none;
+    border: none;
+    padding: 0;
     align-self: center;
     .trashcanCartItem {
       color: black;
@@ -196,7 +198,6 @@ export const TotalPriceSession = styled.section`
   align-items: center;
   gap: 10px;
   padding-bottom: 15px;
-
   background: var(--colors-grey-6);
 
   span {
@@ -204,7 +205,6 @@ export const TotalPriceSession = styled.section`
     font-weight: 500;
   }
   button {
-    /* margin-top: 1rem; */
     color: var(--colors-white);
     background: var(--colors-red);
     border: 1px solid transparent;

@@ -1,6 +1,7 @@
 import { createContext, useMemo, useState } from "react";
 import { toast } from "react-hot-toast";
 import { api } from "../services";
+import axios from "axios";
 import { IProvider, IContext, IComicBook } from "../interfaces";
 import md5 from "md5";
 
@@ -12,6 +13,16 @@ export const Provider = ({ children }: IProvider) => {
   const [cupomType, setCumpomType] = useState<"rare" | "notRare" | null>(
     "notRare"
   );
+  const [nextPage, setNextPage] = useState("");
+  const [pageBefore, setBeforePage] = useState("");
+  const [isLoading, setLoading] = useState(true);
+
+  const showNext = () => {
+    axios(nextPage).then((response) => {
+      console.log(response.data);
+      setNextPage(response.data.info.next);
+    });
+  };
 
   const calculateTotalPrice = useMemo(
     () =>
@@ -69,6 +80,7 @@ export const Provider = ({ children }: IProvider) => {
         rare: rareIndexes.includes(index),
       }))
     );
+    setLoading(false);
   };
 
   const addCartItem = (cartItem: IComicBook) => {
@@ -107,6 +119,8 @@ export const Provider = ({ children }: IProvider) => {
         removeAllCart,
         calculateTotalPrice,
         totalPriceDiscount,
+        showNext,
+        isLoading,
       }}
     >
       {children}
