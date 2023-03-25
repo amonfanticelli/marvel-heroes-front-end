@@ -7,6 +7,7 @@ import {
   DescriptionBox,
   CreatorsBox,
   ImagesList,
+  BackgroundImgBox,
 } from "./style";
 import { Footer } from "../../Footer";
 
@@ -32,12 +33,13 @@ export const HQPage = () => {
   let creatorsString = creatorsName.join("");
   let creatorsSplited = creatorsString.split("");
   let creatorsWithDot = creatorsSplited.slice(0, -2).join("");
-  const creatorsWithDotAtEnd = creatorsWithDot.split("  ");
+  const creatorsWithDotAtEnd = creatorsWithDot.split(",  ");
 
   return (
     <>
       <Header />
       <AllContent>
+        <BackgroundImgBox />
         <Main>
           <img
             src={comic?.thumbnail.path! + "." + comic?.thumbnail.extension}
@@ -47,9 +49,13 @@ export const HQPage = () => {
             <h4>{comic?.title}</h4>
             <CreatorsBox>
               <h5>Criadores:</h5>
-              {creatorsWithDotAtEnd.map((text) => (
-                <span key={text}>{text}</span>
-              )) || <p>"No creators have been found"</p>}
+              {creatorsWithDotAtEnd[0] === "" ? (
+                <span>"No creators have been found"</span>
+              ) : (
+                creatorsWithDotAtEnd.map((text) => (
+                  <span key={text}>{text + "."} </span>
+                ))
+              )}
             </CreatorsBox>
             <DescriptionBox>
               <h5>Descrição:</h5>

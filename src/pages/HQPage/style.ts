@@ -1,12 +1,33 @@
 import styled from "styled-components";
-import backgroundImg from "../../assets/spiderwall.jpg";
+import backgroundImg from "../../assets/great-power-comes.jpg";
 
 export const AllContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 800px;
+  z-index: 500;
+  background: transparent;
 `;
+
+export const BackgroundImgBox = styled.div`
+  background-image: url(${backgroundImg});
+
+  /* Add the blur effect */
+  filter: blur(11px);
+  -webkit-filter: blur(11px);
+  z-index: -1;
+  /* Full height */
+  height: 150%;
+  /* top: 25%; */
+  position: absolute;
+  width: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+
 export const Main = styled.main`
   display: flex;
   margin-top: 2rem;
@@ -24,7 +45,7 @@ export const Main = styled.main`
     min-width: 375px;
     height: 600px;
     margin-right: 1rem;
-    z-index: 2;
+
     @media screen and (max-width: 910px) {
       width: 90%;
       min-width: 375;
@@ -83,14 +104,17 @@ export const DescriptionBox = styled.div`
 `;
 
 export const ImagesList = styled.ul`
+  min-height: 800px;
   width: 70%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 25.4px;
   flex-wrap: wrap;
 
   @media screen and (max-width: 910px) {
     width: 100%;
+    justify-content: center;
+    min-height: 300px;
   }
   li {
     width: 23%;
