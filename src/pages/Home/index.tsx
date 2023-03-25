@@ -1,17 +1,10 @@
 import { Header } from "../../components/Header";
-import {
-  Main,
-  AllContent,
-  ArrowButtonRight,
-  ArrowButtonBox,
-  ArrowButtonLeft,
-  LoadingBox,
-} from "./style";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { Main, AllContent, LoadingBox } from "./style";
 import { CardList } from "../../components/CardList";
 import { Cart } from "../../components/Cart";
 import { useEffect, useContext } from "react";
 import { Context } from "../../context/context";
+import { Footer } from "../../Footer";
 
 export const Home = () => {
   const { getHQs, nextPageTest, isLoading } = useContext(Context);
@@ -22,6 +15,7 @@ export const Home = () => {
   return (
     <>
       <Header />
+
       <AllContent>
         <Main>
           {isLoading ? (
@@ -29,19 +23,12 @@ export const Home = () => {
           ) : (
             <>
               <CardList />
-              <ArrowButtonBox>
-                <BsArrowLeft className="iconArrowLeft" />
-
-                <BsArrowRight
-                  onClick={() => nextPageTest}
-                  className="iconArrowRight"
-                />
-              </ArrowButtonBox>
             </>
           )}
         </Main>
         <Cart />
       </AllContent>
+      <Footer />
     </>
   );
 };

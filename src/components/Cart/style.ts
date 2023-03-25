@@ -22,11 +22,12 @@ export const Aside = styled.aside`
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   min-width: 23.438rem;
+
   height: 29rem;
   background: var(--colors-grey-6);
   margin-top: 2rem;
 
-  @media screen and (max-width: 910px) {
+  @media screen and (max-width: 930px) {
     width: 100%;
   }
 `;

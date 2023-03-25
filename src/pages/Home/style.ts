@@ -18,13 +18,17 @@ const endlessCicle = keyframes`
 export const AllContent = styled.div`
   display: flex;
   justify-content: center;
-  @media screen and (max-width: 910px) {
+  min-height: 900px;
+
+  @media screen and (max-width: 930px) {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     padding-left: 20px;
     padding-bottom: 20px;
     padding-right: 20px;
+    min-height: 1200px;
   }
 `;
 
@@ -35,7 +39,7 @@ export const Main = styled.main`
 
   max-width: 1300px;
   margin-top: 2rem;
-  @media screen and (max-width: 910px) {
+  @media screen and (max-width: 930px) {
     width: 100%;
   }
 `;
@@ -54,36 +58,4 @@ export const LoadingBox = styled.div`
   height: 200px;
 
   animation: ${endlessCicle} 4s linear infinite;
-`;
-export const ArrowButtonBox = styled.div`
-  width: 100%;
-  max-width: 1090px;
-  border: 1px solid red;
-  display: flex;
-  justify-content: space-between;
-
-  .iconArrowLeft {
-    height: 30px;
-    width: 40px;
-    cursor: pointer;
-  }
-
-  .iconArrowRight {
-    height: 30px;
-    width: 40px;
-    cursor: pointer;
-  }
-`;
-
-export const ArrowButtonRight = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-`;
-export const ArrowButtonLeft = styled.button`
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
 `;

@@ -8,6 +8,7 @@ import {
   CreatorsBox,
   ImagesList,
 } from "./style";
+import { Footer } from "../../Footer";
 
 export const HQPage = () => {
   const location = useLocation() as { state?: { comic: IComicBook } };
@@ -28,6 +29,11 @@ export const HQPage = () => {
     );
   }
 
+  let creatorsString = creatorsName.join("");
+  let creatorsSplited = creatorsString.split("");
+  let creatorsWithDot = creatorsSplited.slice(0, -2).join("");
+  const creatorsWithDotAtEnd = creatorsWithDot.split("  ");
+
   return (
     <>
       <Header />
@@ -41,12 +47,9 @@ export const HQPage = () => {
             <h4>{comic?.title}</h4>
             <CreatorsBox>
               <h5>Criadores:</h5>
-              <span>
-                {" "}
-                {creatorsName.map((text) => <span key={text}>{text}</span>) || (
-                  <p>"No creators have been found"</p>
-                )}
-              </span>
+              {creatorsWithDotAtEnd.map((text) => (
+                <span key={text}>{text}</span>
+              )) || <p>"No creators have been found"</p>}
             </CreatorsBox>
             <DescriptionBox>
               <h5>Descrição:</h5>
@@ -68,6 +71,7 @@ export const HQPage = () => {
           )) || ""}
         </ImagesList>
       </AllContent>
+      <Footer />
     </>
   );
 };

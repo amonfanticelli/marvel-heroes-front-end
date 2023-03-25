@@ -1,16 +1,18 @@
 import styled from "styled-components";
+import backgroundImg from "../../assets/spiderwall.jpg";
 
 export const AllContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 800px;
 `;
 export const Main = styled.main`
   display: flex;
   margin-top: 2rem;
   margin-bottom: 2rem;
-
   width: 70%;
+
   @media screen and (max-width: 910px) {
     width: 95%;
     display: flex;
@@ -22,9 +24,11 @@ export const Main = styled.main`
     min-width: 375px;
     height: 600px;
     margin-right: 1rem;
+    z-index: 2;
     @media screen and (max-width: 910px) {
       width: 90%;
       min-width: 375;
+      margin-bottom: 1rem;
     }
   }
 
@@ -47,10 +51,12 @@ export const CreatorsBox = styled.div`
   span {
     font-family: var(--font-inter);
     font-style: normal;
-    font-weight: 400;
+    /* font-weight: 400; */
+    font-weight: 600;
     font-size: 1rem;
     line-height: 1.75rem;
-    color: var(--colors-grey-2);
+    /* color: var(--colors-grey-2); */
+    color: black;
     text-align: justify;
     text-justify: inter-word;
   }
@@ -65,10 +71,12 @@ export const DescriptionBox = styled.div`
   p {
     font-family: var(--font-inter);
     font-style: normal;
-    font-weight: 400;
+    /* font-weight: 400; */
+    font-weight: 600;
     font-size: 1rem;
     line-height: 1.75rem;
-    color: var(--colors-grey-2);
+    /* color: var(--colors-grey-2); */
+    color: black;
     text-align: justify;
     text-justify: inter-word;
   }
