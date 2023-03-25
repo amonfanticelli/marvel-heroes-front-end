@@ -11,12 +11,17 @@ import {
   ComicTitleCart,
   RareTagCart,
   TotalPriceSession,
+  Form,
 } from "./style";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { TfiShoppingCartFull } from "react-icons/tfi";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { Context } from "../../context/context";
 import { useContext } from "react";
+import { Input } from "../Input";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { cupomSchema } from "../schemas/cupom";
 
 export const Cart = () => {
   const {
@@ -25,7 +30,17 @@ export const Cart = () => {
     removeAllCart,
     calculateTotalPrice,
     totalPriceDiscount,
+    setCumpomType,
   } = useContext(Context);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<any>({
+    resolver: yupResolver(cupomSchema),
+  });
+
   return (
     <>
       <Aside>
@@ -85,6 +100,18 @@ export const Cart = () => {
           <></>
         ) : (
           <TotalPriceSession>
+            <Form onSubmit={handleSubmit(({ cupom }) => setCumpomType(cupom))}>
+              <Input
+                {...register("cupom")}
+                id="cupom"
+                placeholder="Insira seu cupom"
+                type="text"
+                error={errors?.cupom}
+              />
+              <button className="cupomButton" type="submit">
+                Aplicar
+              </button>
+            </Form>
             <span>
               Valor total:{" "}
               {new Intl.NumberFormat("en-US", {

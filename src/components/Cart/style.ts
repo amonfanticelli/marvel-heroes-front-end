@@ -223,3 +223,27 @@ export const TotalPriceSession = styled.section`
     }
   }
 `;
+
+export const Form = styled.form`
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+
+  .cupomButton {
+    color: var(--colors-white);
+    background: green;
+    border: 1px solid transparent;
+    width: 40%;
+    border-radius: 4px;
+    padding: 9px;
+    cursor: pointer;
+    font-family: var(--font-inter);
+    font-size: 1rem;
+    &:hover {
+      background: var(--colors-white);
+      color: green;
+      border: 1px solid green;
+      transition: 0.4s;
+    }
+  }
+`;

@@ -7,25 +7,19 @@ import { Context } from "../../context/context";
 import { Footer } from "../../Footer";
 
 export const Home = () => {
-  const { getHQs, nextPageTest, isLoading } = useContext(Context);
+  const { getHQs, isLoading, comicBooks } = useContext(Context);
 
   useEffect(() => {
-    getHQs();
-  }, []);
+    if (!comicBooks.length) {
+      getHQs();
+    }
+  }, [comicBooks]);
   return (
     <>
       <Header />
 
       <AllContent>
-        <Main>
-          {isLoading ? (
-            <LoadingBox></LoadingBox>
-          ) : (
-            <>
-              <CardList />
-            </>
-          )}
-        </Main>
+        <Main>{isLoading ? <LoadingBox /> : <CardList />}</Main>
         <Cart />
       </AllContent>
       <Footer />

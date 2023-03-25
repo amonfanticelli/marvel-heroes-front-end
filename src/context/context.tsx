@@ -16,6 +16,7 @@ export const Provider = ({ children }: IProvider) => {
   const [nextPage, setNextPage] = useState("");
   const [pageBefore, setBeforePage] = useState("");
   const [isLoading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
   const showNext = () => {
     axios(nextPage).then((response) => {
@@ -46,7 +47,8 @@ export const Provider = ({ children }: IProvider) => {
     [cartItens, cupomType]
   );
 
-  const getHQs = async () => {
+  const getHQs = async (pageCall = 1) => {
+    setLoading(true);
     const timeStamp = Math.floor(Date.now() / 1000).toString();
     // const privateKey = "949d93578a185a51b0d371610caff60cdc763355";
     const privateKey = import.meta.env.VITE_PRIVATE_KEY;
@@ -54,9 +56,12 @@ export const Provider = ({ children }: IProvider) => {
     // const apiKey = "ad7ff4bdd1b22a69f4bc0eb5e76580c4";
     const hash = md5(timeStamp + privateKey + apiKey);
 
+    const limit = 20;
     const results = await api
       .get<{ data: { results: IComicBook[] } }>(
-        `v1/public/comics?apikey=${apiKey}&hash=${hash}&ts=${timeStamp}`
+        `v1/public/comics?apikey=${apiKey}&hash=${hash}&ts=${timeStamp}&offset=${
+          (pageCall - 1) * limit
+        }`
       )
       .then((res) => res.data.data.results)
       .catch((err) => {
@@ -74,6 +79,7 @@ export const Provider = ({ children }: IProvider) => {
       }
     }
 
+    setPage(pageCall);
     setComicBooks(
       results.map((comic, index) => ({
         ...comic,
@@ -157,6 +163,8 @@ export const Provider = ({ children }: IProvider) => {
         showNext,
         isLoading,
         nextPageTest,
+        page,
+        setCumpomType,
       }}
     >
       {children}

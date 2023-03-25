@@ -3,7 +3,7 @@ export interface IProvider {
 }
 
 export interface IContext {
-  getHQs: () => void;
+  getHQs: (pageCall?: number) => void;
   comicBooks: IComicBook[];
   addCartItem: (cartItem: IComicBook) => void;
   cartItens: IComicBook[];
@@ -14,6 +14,8 @@ export interface IContext {
   showNext: () => void;
   isLoading: boolean;
   nextPageTest: () => void;
+  page: number;
+  setCumpomType: React.Dispatch<"rare" | "notRare" | null>;
 }
 
 export interface IComicBook {
