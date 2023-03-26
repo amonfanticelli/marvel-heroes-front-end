@@ -109,7 +109,7 @@ export const Cart = () => {
                 type="text"
                 error={errors?.cupom}
               />
-              <button className="cupomButton" type="submit">
+              <button id="applyCoupon" className="cupomButton" type="submit">
                 Aplicar
               </button>
             </Form>

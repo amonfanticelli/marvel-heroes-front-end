@@ -38,3 +38,16 @@ describe("test if can be redirected to comic page", () => {
     cy.url().should("include", "/hq");
   });
 });
+
+describe("test if cupons are working", () => {
+  it("validate cupons", () => {
+    cy.visit("http://localhost:5173/");
+
+    cy.contains("Comprar").click();
+    cy.get("#applyCoupon").type("notRare10");
+    cy.contains("Aplicar").click();
+    cy.get('[type="text"]').clear();
+    cy.get("#applyCoupon").type("notRare10");
+    cy.contains("Aplicar").click();
+  });
+});
