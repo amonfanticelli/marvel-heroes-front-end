@@ -45,7 +45,7 @@ export const Container = styled.div`
     color: #f10;
     width: 20px;
     height: 20px;
-    bottom: -10px;
+    bottom: -2px;
     right: 5px;
   }
 `;
@@ -64,7 +64,7 @@ export const Error = styled.div`
     background-color: #f10;
     padding: 4px 15px;
     border-radius: 3px;
-    right: 6px;
+    right: 6.6px;
     top: 5px;
     opacity: 0;
     transition: opacity 0.4s;
