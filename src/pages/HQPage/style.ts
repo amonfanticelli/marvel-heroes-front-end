@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import backgroundImg from "../../assets/great-power-comes.jpg";
+import backgroundMobile from "../../assets/thanos2.jpg";
 
 export const AllContent = styled.div`
   display: flex;
@@ -22,6 +23,12 @@ export const BackgroundImgBox = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  @media screen and (max-width: 1340px) {
+    height: 500%;
+    background-image: url(${backgroundMobile});
+    filter: blur(9px);
+    -webkit-filter: blur(9px);
+  }
 `;
 
 export const Main = styled.main`
@@ -71,7 +78,7 @@ export const CreatorsBox = styled.div`
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.75rem;
-    color: var(--colors-grey-4);
+    color: black;
     text-align: justify;
     text-justify: inter-word;
   }
@@ -89,7 +96,7 @@ export const DescriptionBox = styled.div`
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.75rem;
-    color: var(--colors-grey-4);
+    color: black;
     text-align: justify;
     text-justify: inter-word;
   }
