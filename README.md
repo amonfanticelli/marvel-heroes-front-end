@@ -2,7 +2,9 @@
 
 # Descrição da aplicação:
 
-A aplicação é uma ecommerce de quadrinhos da Marvel. Nessa aplicação o usuário tem a possibilidade de: visualizar todos os quadrinhos, passar páginas, visulizar a página de cada quadrinho específico, adicionar quadrinhos ao carrinho, remover quadrinhos do carrinho e adicionar um cupom de desconto.
+A aplicação é uma ecommerce de quadrinhos da Marvel. Nessa aplicação o usuário tem a possibilidade de: visualizar todos os quadrinhos exibindo sempre 2 quadrinhos raros por página, passar páginas, visulizar a página de cada quadrinho específico, adicionar quadrinhos ao carrinho, remover quadrinhos do carrinho e adicionar um cupom de desconto.
+
+Já tive algumas experiências de projetos similares a esse, portanto consegui visualizar as etapas que eu iria percorrer, desde a componentização e estilização, até as lógicas de negócio.
 
 ## Tecnologias/ferramentas utilizadas na aplicação:
 
