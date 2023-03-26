@@ -22,6 +22,7 @@ import { Input } from "../Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { cupomSchema } from "../schemas/cupom";
+import { ICupom } from "../../interfaces";
 
 export const Cart = () => {
   const {
@@ -37,7 +38,7 @@ export const Cart = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<any>({
+  } = useForm<ICupom>({
     resolver: yupResolver(cupomSchema),
   });
 

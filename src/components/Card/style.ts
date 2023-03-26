@@ -66,9 +66,6 @@ export const TitleBox = styled.div`
     font-family: var(--font-bangers);
     font-weight: 400;
     font-size: 20px;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;

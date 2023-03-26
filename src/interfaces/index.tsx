@@ -11,11 +11,9 @@ export interface IContext {
   removeAllCart: () => void;
   calculateTotalPrice: number;
   totalPriceDiscount: number;
-  showNext: () => void;
   isLoading: boolean;
-  nextPageTest: () => void;
   page: number;
-  setCumpomType: React.Dispatch<"rare" | "notRare" | null>;
+  setCumpomType: React.Dispatch<"rare5" | "notRare10" | null>;
 }
 
 export interface IComicBook {
@@ -42,4 +40,8 @@ export interface IComicBook {
       role: string;
     }[];
   };
+}
+
+export interface ICupom {
+  cupom: "rare5" | "notRare10" | null;
 }

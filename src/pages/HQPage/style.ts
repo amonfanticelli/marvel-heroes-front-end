@@ -7,7 +7,7 @@ export const AllContent = styled.div`
   align-items: center;
   min-height: 800px;
   z-index: 500;
-  background: transparent;
+  justify-content: flex-end;
 `;
 
 export const BackgroundImgBox = styled.div`
@@ -17,12 +17,10 @@ export const BackgroundImgBox = styled.div`
   filter: blur(11px);
   -webkit-filter: blur(11px);
   z-index: -1;
-  /* Full height */
-  height: 150%;
-  /* top: 25%; */
+  height: 190%;
   position: absolute;
+
   width: 100%;
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -72,12 +70,10 @@ export const CreatorsBox = styled.div`
   span {
     font-family: var(--font-inter);
     font-style: normal;
-    /* font-weight: 400; */
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.75rem;
-    /* color: var(--colors-grey-2); */
-    color: black;
+    color: var(--colors-grey-4);
     text-align: justify;
     text-justify: inter-word;
   }
@@ -92,19 +88,16 @@ export const DescriptionBox = styled.div`
   p {
     font-family: var(--font-inter);
     font-style: normal;
-    /* font-weight: 400; */
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.75rem;
-    /* color: var(--colors-grey-2); */
-    color: black;
+    color: var(--colors-grey-4);
     text-align: justify;
     text-justify: inter-word;
   }
 `;
 
 export const ImagesList = styled.ul`
-  min-height: 800px;
   width: 70%;
   display: flex;
   justify-content: flex-start;

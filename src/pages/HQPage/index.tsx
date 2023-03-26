@@ -76,8 +76,8 @@ export const HQPage = () => {
             </li>
           )) || ""}
         </ImagesList>
+        <Footer />
       </AllContent>
-      <Footer />
     </>
   );
 };
