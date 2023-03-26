@@ -47,3 +47,9 @@ A aplicação é uma ecommerce de quadrinhos da Marvel. Nessa aplicação o usu�
 `Rode a aplicação com: npm run dev`
 
 `Com a aplicação rodando, abra outro terminal e execute: npx cypress open`
+
+## Cupons de desconto mock:
+
+`cupom de 5% de desconto para cards raros: rare5`
+
+`cupom de 10% de desconto para cards comuns: notRare10`
