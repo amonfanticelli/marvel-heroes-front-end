@@ -6,7 +6,7 @@ const moveArrow = keyframes`
   }
 
   50% {
-      margin-right: 7px;
+      margin-right: 15px;
   }
 
   100% {
@@ -38,18 +38,24 @@ export const ArrowButtonBox = styled.div`
   display: flex;
   justify-content: space-between;
 
-  .iconArrowLeft {
-    height: 30px;
-    width: 40px;
-    cursor: pointer;
-    &:hover {
-      animation: ${moveArrow} 1s infinite;
+  button {
+    border: none;
+    background: none;
+    .iconArrowLeft {
+      height: 30px;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        animation: ${moveArrow} 1s infinite;
+      }
     }
-  }
-
-  .iconArrowRight {
-    height: 30px;
-    width: 40px;
-    cursor: pointer;
+    .iconArrowRight {
+      height: 30px;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        animation: ${moveArrow} 1s infinite;
+      }
+    }
   }
 `;

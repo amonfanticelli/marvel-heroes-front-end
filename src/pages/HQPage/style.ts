@@ -5,7 +5,6 @@ export const AllContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 800px;
   z-index: 500;
   justify-content: flex-end;
 `;
@@ -13,7 +12,6 @@ export const AllContent = styled.div`
 export const BackgroundImgBox = styled.div`
   background-image: url(${backgroundImg});
 
-  /* Add the blur effect */
   filter: blur(11px);
   -webkit-filter: blur(11px);
   z-index: -1;
@@ -41,7 +39,7 @@ export const Main = styled.main`
   img {
     width: 35%;
     min-width: 375px;
-    height: 600px;
+    height: 500px;
     margin-right: 1rem;
 
     @media screen and (max-width: 910px) {
@@ -98,6 +96,7 @@ export const DescriptionBox = styled.div`
 `;
 
 export const ImagesList = styled.ul`
+  min-height: 300px;
   width: 70%;
   display: flex;
   justify-content: flex-start;

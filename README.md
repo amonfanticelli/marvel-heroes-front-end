@@ -1,8 +1,8 @@
-# Marvel Comic Books - FrontEnd
+# Marvel Comic Books - Front end
 
-# Descrição do projeto:
+# Descrição da aplicação:
 
-O projeto é uma plataforma de divulgação de anúncios de vendas de carros e motos. O objetivo do projeto é facilitar a busca de usuários por veículos à venda e garantir uma interação entre vendedor e comprador com praticidade. Ao registrar-se na plataforma o usuário pdoerá anunciar veículos ou procurar algum que seja do seu interesse.
+A aplicação é uma ecommerce de quadrinhos da Marvel. Nessa aplicação o usuário tem a possibilidade de: visualizar todos os quadrinhos, passar páginas, visulizar a página de cada quadrinho específico, adicionar quadrinhos ao carrinho, remover quadrinhos do carrinho e adicionar um cupom de desconto.
 
 ## Tecnologias/ferramentas utilizadas na aplicação:
 
@@ -14,13 +14,36 @@ O projeto é uma plataforma de divulgação de anúncios de vendas de carros e m
 - react-icons
 - react-router-dom
 - yup
+- Context-api
 
 ## Antes de iniciar a aplicação, rode o seguinte comando para instalar as dependências:
 
 `npm install`
 
+## Preencha as váriaveis de ambiente:
+
+`Utilize o arquivo env.example como base`
+
+`Variável "VITE_PRIVATE_KEY" deve ser preenchida com sua chave privada advinda do website da api da Marvel: http://gateway.marvel.com`
+
+`Variável "VITE_API_KEY" deve ser preenchida com sua chave pública advinda do website da api da Marvel: http://gateway.marvel.com`
+
 ## Para inicializar a aplicação localmente, execute:
 
 `npm run dev`
 
-# ATENÇÃO! Por ser um projeto FullStack é necessário estar com ambas as aplicações f
+## Para inicializar a aplicação com dockerfile, execute:
+
+`docker build -t example/latest .`
+
+`docker run --name example -p 5173:5173 heroes/latest`
+
+## Para inicializar a aplicação com docker compose, execute:
+
+`docker compose up`
+
+## Essa aplicação possui testes E2E com cypress, para executá-los:
+
+`Rode a aplicação com: npm run dev`
+
+`Com a aplicação rodando, abra outro terminal e execute: npx cypress open`
