@@ -13,7 +13,7 @@ export interface IContext {
   totalPriceDiscount: number;
   isLoading: boolean;
   page: number;
-  setCumpomType: React.Dispatch<"rare5" | "notRare10" | null>;
+  setCouponType: React.Dispatch<"rare5" | "notRare10" | null>;
 }
 
 export interface IComicBook {
@@ -42,6 +42,6 @@ export interface IComicBook {
   };
 }
 
-export interface ICupom {
-  cupom: "rare5" | "notRare10" | null;
+export interface ICoupon {
+  coupon: "rare5" | "notRare10" | null;
 }

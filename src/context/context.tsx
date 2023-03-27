@@ -9,7 +9,7 @@ export const Context = createContext({} as IContext);
 export const Provider = ({ children }: IProvider) => {
   const [comicBooks, setComicBooks] = useState<IComicBook[]>([]);
   const [cartItens, setCartItens] = useState<IComicBook[]>([]);
-  const [cupomType, setCumpomType] = useState<"rare5" | "notRare10" | null>(
+  const [couponType, setCouponType] = useState<"rare5" | "notRare10" | null>(
     null
   );
   const [isLoading, setLoading] = useState(true);
@@ -26,16 +26,16 @@ export const Provider = ({ children }: IProvider) => {
   const totalPriceDiscount = useMemo(
     () =>
       cartItens.reduce((acc, currentValue) => {
-        if (cupomType === "rare5" && currentValue.rare) {
+        if (couponType === "rare5" && currentValue.rare) {
           return acc + currentValue.prices[0].price * 0.95;
         }
-        if (cupomType === "notRare10" && !currentValue.rare) {
+        if (couponType === "notRare10" && !currentValue.rare) {
           return acc + currentValue.prices[0].price * 0.9;
         }
 
         return acc + currentValue.prices[0].price;
       }, 0),
-    [cartItens, cupomType]
+    [cartItens, couponType]
   );
 
   const getHQs = async (pageCall = 1) => {
@@ -100,7 +100,7 @@ export const Provider = ({ children }: IProvider) => {
 
   const removeAllCart = () => {
     setCartItens([]);
-    setCumpomType(null);
+    setCouponType(null);
     toast.success("Todos os Quadrinhos foram removidos!");
   };
 
@@ -117,7 +117,7 @@ export const Provider = ({ children }: IProvider) => {
         totalPriceDiscount,
         isLoading,
         page,
-        setCumpomType,
+        setCouponType,
       }}
     >
       {children}

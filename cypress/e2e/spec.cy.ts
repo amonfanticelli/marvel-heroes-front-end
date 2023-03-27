@@ -39,7 +39,7 @@ describe("test if can be redirected to comic page", () => {
   });
 });
 
-describe("test if cupons are working", () => {
+describe("test if coupons are working", () => {
   it("validate cupons", () => {
     cy.visit("http://localhost:5173/");
 

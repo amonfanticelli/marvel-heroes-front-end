@@ -229,7 +229,7 @@ export const Form = styled.form`
   display: flex;
   justify-content: space-between;
 
-  .cupomButton {
+  .couponButton {
     color: var(--colors-white);
     background: green;
     border: 1px solid transparent;

@@ -21,8 +21,8 @@ import { useContext } from "react";
 import { Input } from "../Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { cupomSchema } from "../schemas/cupom";
-import { ICupom } from "../../interfaces";
+import { couponSchema } from "../schemas/coupon";
+import { ICoupon } from "../../interfaces";
 
 export const Cart = () => {
   const {
@@ -31,15 +31,15 @@ export const Cart = () => {
     removeAllCart,
     calculateTotalPrice,
     totalPriceDiscount,
-    setCumpomType,
+    setCouponType,
   } = useContext(Context);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ICupom>({
-    resolver: yupResolver(cupomSchema),
+  } = useForm<ICoupon>({
+    resolver: yupResolver(couponSchema),
   });
 
   return (
@@ -101,15 +101,17 @@ export const Cart = () => {
           <></>
         ) : (
           <TotalPriceSession>
-            <Form onSubmit={handleSubmit(({ cupom }) => setCumpomType(cupom))}>
+            <Form
+              onSubmit={handleSubmit(({ coupon }) => setCouponType(coupon))}
+            >
               <Input
-                {...register("cupom")}
-                id="cupom"
+                {...register("coupon")}
+                id="coupon"
                 placeholder="Insira seu cupom"
                 type="text"
-                error={errors?.cupom}
+                error={errors?.coupon}
               />
-              <button id="applyCoupon" className="cupomButton" type="submit">
+              <button id="applyCoupon" className="couponButton" type="submit">
                 Aplicar
               </button>
             </Form>
