@@ -7,29 +7,29 @@ export const AllContent = styled.div`
   flex-direction: column;
   align-items: center;
   z-index: 500;
+  /* background: #00003e; */
   justify-content: flex-end;
 `;
 
-export const BackgroundImgBox = styled.div`
-  background-image: url(${backgroundImg});
+// export const BackgroundImgBox = styled.div`
+//   background-image: url(${backgroundImg});
 
-  filter: blur(11px);
-  -webkit-filter: blur(11px);
-  z-index: -1;
-  height: 190%;
-  position: absolute;
+//   filter: blur(11px);
+//   -webkit-filter: blur(11px);
+//   z-index: -1;
+//   height: 100%;
+//   position: absolute;
+//   width: 100%;
+//   background-position: center top;
+//   background-repeat: no-repeat;
+//   background-size: 100% 100%;
 
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  @media screen and (max-width: 1340px) {
-    height: 500%;
-    background-image: url(${backgroundMobile});
-    filter: blur(9px);
-    -webkit-filter: blur(9px);
-  }
-`;
+//   @media screen and (max-width: 1340px) {
+//     background-image: url(${backgroundMobile});
+//     filter: blur(9px);
+//     -webkit-filter: blur(9px);
+//   }
+// `;
 
 export const Main = styled.main`
   display: flex;
@@ -103,17 +103,39 @@ export const DescriptionBox = styled.div`
 `;
 
 export const ImagesList = styled.ul`
-  min-height: 300px;
+  min-height: 200px;
   width: 70%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: start;
   gap: 25.4px;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  ::-webkit-scrollbar {
+    width: 14px;
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 14px 14px var(--colors-red);
+    border: solid 4px transparent;
+    border-radius: 14px;
+  }
+
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 14px 14px var(--colors-red);
+  }
+
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
 
   @media screen and (max-width: 910px) {
     width: 100%;
-    justify-content: center;
-    min-height: 300px;
+    justify-content: start;
   }
   li {
     width: 23%;

@@ -21,7 +21,7 @@ import { useContext } from "react";
 import { Input } from "../Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { couponSchema } from "../schemas/coupon";
+import { couponSchema } from "../../schemas/coupon";
 import { ICoupon } from "../../interfaces";
 
 export const Cart = () => {

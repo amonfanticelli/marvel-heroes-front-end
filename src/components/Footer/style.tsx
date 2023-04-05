@@ -8,7 +8,10 @@ export const FooterComponent = styled.footer`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3rem;
+
+  /* position: fixed; */
+  bottom: 0;
+  margin-top: 100px;
 
   p {
     font-family: var(--font-inter);

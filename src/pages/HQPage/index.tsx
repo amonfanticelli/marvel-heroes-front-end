@@ -7,9 +7,8 @@ import {
   DescriptionBox,
   CreatorsBox,
   ImagesList,
-  BackgroundImgBox,
 } from "./style";
-import { Footer } from "../../Footer";
+import { Footer } from "../../components/Footer";
 
 export const HQPage = () => {
   const location = useLocation() as { state?: { comic: IComicBook } };
@@ -38,8 +37,8 @@ export const HQPage = () => {
   return (
     <>
       <Header />
+
       <AllContent>
-        <BackgroundImgBox />
         <Main>
           <img
             src={comic?.thumbnail.path! + "." + comic?.thumbnail.extension}
@@ -76,8 +75,8 @@ export const HQPage = () => {
             </li>
           )) || ""}
         </ImagesList>
-        <Footer />
       </AllContent>
+      <Footer />
     </>
   );
 };
